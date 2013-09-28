@@ -26,27 +26,6 @@ import org.bouncycastle.openpgp.operator.bc.BcPGPKeyPair;
 
 public class RSAGen
 {
-    public static void main(String args[])
-            throws Exception
-    {
-        char pass[] = {'h', 'e', 'l', 'l', 'o'};
-        PGPKeyRingGenerator krgen = generateKeyRingGenerator
-                ("alice@example.com", pass);
-
-        // Generate public key ring, dump to file.
-        PGPPublicKeyRing pkr = krgen.generatePublicKeyRing();
-        BufferedOutputStream pubout = new BufferedOutputStream
-                (new FileOutputStream("dummy.pkr"));
-        pkr.encode(pubout);
-        pubout.close();
-
-        // Generate private key, dump to file.
-        PGPSecretKeyRing skr = krgen.generateSecretKeyRing();
-        BufferedOutputStream secout = new BufferedOutputStream
-                (new FileOutputStream("dummy.skr"));
-        skr.encode(secout);
-        secout.close();
-    }
 
     public final static PGPKeyRingGenerator generateKeyRingGenerator
             (String id, char[] pass)
